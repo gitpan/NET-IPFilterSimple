@@ -5,3 +5,5 @@ Revision history for Perl extension NET::IPFilterSimple.
 		-Ac NET::IPFilterSimple
         - first public realease of NET::IPFilterSimple
 
+1.1.2 - fixed critical bug - now working correctly
+

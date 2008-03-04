@@ -25,7 +25,7 @@ our @EXPORT = qw(
 	_init
 );
 
-our $VERSION = '0.01';
+our $VERSION = '1.2';
 
 
 sub new(){
@@ -52,14 +52,10 @@ sub isValid(){
 	for ( my $count=0; $count<=$howmany; $count++) {
 		
 		my ($RangFrom, $RangTo) = split("-", $RangesArrayRef->[$count]);
-
-		if ( $IPtoCheck > $RangFrom && $IPtoCheck < $RangTo ) {
-			return 0;	# to be blocked
-		} elsif ( $IPtoCheck <=> $RangFrom || $IPtoCheck <=> $RangTo ) {
-			return 0;	# to be blocked
-		}; # if ( $IPtoCheck > $RangTo || $IPtoCheck < $RangFrom ) {
-
-		$count++;
+	
+		if ( $IPtoCheck >= $RangFrom && $IPtoCheck <= $RangTo ) {
+			return 0;
+		};
 
 	}; # for ( my $count=0; $count<=$howmany; $count++) {
 
@@ -117,6 +113,7 @@ __END__
 =head1 NAME
 
 NET::IPFilterSimple - Perl extension accessing ipfilter.dat files the very simple way
+Warning: Please Update your Sources. Current Version fixed a very critical bug that prevents Program from working correctly.
 
 =head1 SYNOPSIS
 
